@@ -1,4 +1,4 @@
-//Left rotte the array by one place
+//Left rotate the array by one place
 
 #include<bits/stdc++.h>
 vector<int> rotateArray(vector<int> &arr,int n){
@@ -13,3 +13,10 @@ return arr;
 //T.C:O(n)
 //S.C:O(1)
 
+//left rotate the array by D places
+                      //brute force aproach
+//D=3
+//arr[]=[1,2,3,4,5,6,7]
+temp[]=[1,2,3]    
+//shifting
+//
