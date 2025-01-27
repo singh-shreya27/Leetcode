@@ -34,3 +34,5 @@ for(int i=0;i<n;i++){
 
 //optimal approach:
 //using "PREFIX SUM"
+//hash array:
+
