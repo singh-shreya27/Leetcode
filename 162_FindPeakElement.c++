@@ -1,4 +1,4 @@
-           //find peak element.
+                                   //find peak element.
 //arr[i-1]<arr[i]>arr[i+1]
 
 //linear iteration:
@@ -36,3 +36,34 @@ int function(arr,n){
   }
   return -1;   //function is int type , so integer return is given
 }
+
+//but this code was for one peak, will it work for multiple peaks??
+//yes.
+//because even though we are discarding some peaks on leaft or right, the opposite side will surely have more peaks.
+//but it needs a change : when we have mid on the lowest between two peaks, then none of the above cases are executed.
+//so add 
+else 
+low=mid+1;
+//to the above code
+
+//leetcode solution:
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int n=nums.size();
+        if(n==1) return 0;
+        if(nums[0]>nums[1]) return 0;
+        if(nums[n-1]>nums[n-2]) return n-1;
+
+        int low=1, high=n-2;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(nums[mid]>nums[mid-1] && nums[mid]>nums[mid+1]){
+                return mid;
+            }
+            else if(nums[mid]>nums[mid-1]) low=mid+1;
+            else high=mid-1;
+        }
+        return -1;
+    }
+};
