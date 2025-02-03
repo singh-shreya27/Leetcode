@@ -67,3 +67,5 @@ public:
         return -1;
     }
 };
+
+//T.C:O(log2n) simple binary search
