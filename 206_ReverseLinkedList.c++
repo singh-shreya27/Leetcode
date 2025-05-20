@@ -44,4 +44,28 @@ public:
 //S.C:O(1) :just changing the links
 
                            //RECURSIVE MATHOD:
+//solve smaller problems that will led to the solution of big problem
+reverse(head){
+    //single node
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    //two nodes
+}
 
+//leetcode solution:
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+   if(head==NULL || head->next==NULL){
+    return head;
+   }
+   ListNode* newHead= reverseList(head->next);
+   ListNode* front= head->next;
+   front->next=head;
+   head->next=NULL;
+   return newHead;
+    }
+};
+//T.C:O(n)
+//S.C:O(n) : recursive stack space
