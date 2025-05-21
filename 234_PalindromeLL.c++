@@ -1,4 +1,4 @@
-                //Chcek if a LL is palindrome.
+                //Check if a LL is palindrome.
 
 //Brute force solution:
 
