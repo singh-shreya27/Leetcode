@@ -37,5 +37,46 @@ return head;
 //S.C:O(1)
 
 //optimal approach:
+//take a pointer known as fast and move it 2 steps.
+//then take a slow pointer and now move both slow and fast simultaneously by 1 step.
+//stop when fast reaches the last node.
+//now , slow is standing at the prev node.
+fast=head;
+for(int i=0;i<n;i++){
+  fast=fast->next;
+}
+slow=head;
+while(fast->next!=NULL){
+  slow=slow->next;
+  fast=fast->next;
+}
+if(fast==NULL){
+  return head->next;
+}
+delNode=slow->next;
+slow->next=slow->next->next;
+free(delNode);
+return head;
 
-
+//leetcode solution:
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode*fast=head;
+        ListNode*slow=head;
+        for(int i=0;i<n;i++){
+            fast=fast->next;
+        }
+        if(fast==NULL) return head->next;
+        while(fast->next!=NULL){
+            fast=fast->next;
+            slow=slow->next;
+        }
+        ListNode*delNode=slow->next;
+        slow->next=slow->next->next;
+        delete delNode;
+        return head;
+    }
+};
+//T.C:O(len)
+//S.C:O(1)
